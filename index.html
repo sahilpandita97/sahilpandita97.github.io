@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sahil Pandita — eCommerce & Ads Portfolio</title>
+  <style>
+    :root{
+      --bg:#f7f8fb;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --accent:#0f172a;
+      --accent-2:#0ea5a4;
+      --maxw:980px;
+      --radius:10px;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--accent);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+    .container{
+      max-width:var(--maxw);
+      margin:28px auto;
+      padding:20px;
+    }
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:18px;
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .logo{
+      width:54px;
+      height:54px;
+      border-radius:8px;
+      background:linear-gradient(135deg,var(--accent-2),#06b6d4);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-weight:700;
+      letter-spacing:1px;
+      font-size:18px;
+    }
+    h1{margin:0;font-size:20px}
+    p.lead{margin:6px 0 0;color:var(--muted);font-size:14px}
+    nav{display:flex;gap:12px;align-items:center}
+    a.navlink{color:var(--muted);text-decoration:none;font-size:14px}
+    a.navlink:hover{color:var(--accent)}
+    .hero{
+      background:transparent;
+      padding:18px;
+      display:grid;
+      grid-template-columns:1fr 320px;
+      gap:18px;
+      align-items:start;
+      margin-bottom:18px;
+    }
+    .card{
+      background:var(--card);
+      padding:18px;
+      border-radius:var(--radius);
+      box-shadow:0 6px 18px rgba(12,22,36,0.04);
+    }
+    .about-title{font-weight:700;margin-bottom:8px}
+    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .chip{background:#eef2ff;padding:6px 10px;border-radius:999px;font-size:13px;color:#1f2937}
+    .case-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px}
+    .case{padding:14px;border-radius:8px;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid rgba(11,22,40,0.02)}
+    .case h3{margin:0 0 8px;font-size:15px}
+    .case p{margin:0;color:var(--muted);font-size:14px}
+    footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px;padding:10px}
+    .cta{display:inline-block;margin-top:12px;padding:10px 14px;border-radius:8px;background:var(--accent-2);color:white;text-decoration:none;font-weight:600}
+    .right-col .resume{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .resume a{display:block;background:#0f172a;color:white;padding:10px;border-radius:8px;text-decoration:none;text-align:center}
+    .contact-row{display:flex;flex-direction:column;gap:6px}
+    @media (max-width:880px){
+      .hero{grid-template-columns:1fr; }
+      .case-grid{grid-template-columns:1fr}
+      header{flex-direction:column;align-items:flex-start;gap:8px}
+      .logo{width:46px;height:46px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">SP</div>
+        <div>
+          <h1>Sahil Pandita</h1>
+          <p class="lead">eCommerce & Ads Specialist — Amazon PPC, Catalog ops, Growth</p>
+        </div>
+      </div>
+      <nav>
+        <a class="navlink" href="#about">About</a>
+        <a class="navlink" href="#skills">Skills</a>
+        <a class="navlink" href="#cases">Case Studies</a>
+        <a class="navlink" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="card">
+        <div id="about">
+          <div class="about-title">About</div>
+          <p>I am an eCommerce and ads specialist with hands-on experience across Amazon PPC, catalog optimization, and growth strategy. I focus on improving visibility, lowering ACoS, and scaling profitable sales.</p>
+
+          <div id="skills" style="margin-top:12px">
+            <div class="about-title">Skills</div>
+            <div class="skills">
+              <span class="chip">Amazon Sponsored Ads</span>
+              <span class="chip">Campaign Optimization</span>
+              <span class="chip">Keyword Research</span>
+              <span class="chip">Listing SEO</span>
+              <span class="chip">Excel Reporting</span>
+              <span class="chip">Growth Strategy</span>
+            </div>
+          </div>
+
+          <div id="cases" style="margin-top:16px">
+            <div class="about-title">Case Studies</div>
+            <div class="case-grid">
+              <article class="case">
+                <h3>Amazon PPC Optimization</h3>
+                <p>Problem: High ACoS and wasted spend. Action: Split campaigns, add negatives, bid refactor. Result: Lower ACoS and better CTR.</p>
+              </article>
+              <article class="case">
+                <h3>Catalog Optimization</h3>
+                <p>Problem: Low conversion and poor ranking. Action: Rewrite title and bullets, update backend keywords. Result: Improved organic traffic.</p>
+              </article>
+              <article class="case">
+                <h3>New Product Launch</h3>
+                <p>Goal: Fast indexing and steady launch performance. Action: Auto + manual structure, prioritise long tail. Result: Faster keyword indexing.</p>
+              </article>
+              <article class="case">
+                <h3>Sample PPC Audit</h3>
+                <p>Quick audit that finds budget leaks, poor match type usage, and low performing placements.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card right-col">
+        <div class="resume">
+          <div style="font-weight:700">Resume</div>
+          <a href="#" id="resume-link" download>Download Resume (PDF)</a>
+
+          <div style="margin-top:6px">
+            <div style="font-weight:700;margin-bottom:6px">Contact</div>
+            <div class="contact-row">
+              <div>Email: your.email@example.com</div>
+              <div>LinkedIn: linkedin.com/in/yourprofile</div>
+              <div>Location: Bangalore</div>
+            </div>
+            <a class="cta" href="#contact">Get in touch</a>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="card" id="contact" style="margin-top:12px">
+      <h3 style="margin-top:0">Contact</h3>
+      <p class="lead" style="margin-top:6px">If you want to see detailed case studies or talk about roles, email me or connect on LinkedIn.</p>
+      <div style="margin-top:12px">
+        <strong>Email</strong>: your.email@example.com<br />
+        <strong>LinkedIn</strong>: linkedin.com/in/yourprofile
+      </div>
+    </section>
+
+    <footer>
+      Built for recruiters and hiring managers • Simple, clear, and direct
+    </footer>
+  </div>
+</body>
+</html>
