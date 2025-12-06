@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Sahil Pandita — eCommerce & Ops Portfolio</title>
+<title>Sahil Pandita - eCommerce & Ops Portfolio</title>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -55,6 +55,30 @@
   .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
   .meta-chips{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
   .chip{background:var(--glass);padding:8px 10px;border-radius:999px;color:var(--muted);font-size:13px}
+
+    .btn-main{
+    position:relative;
+    background-size:200% 200%;
+    animation:ctaPulse 3s ease-in-out infinite;
+    box-shadow:0 14px 30px rgba(124,58,237,0.35);
+  }
+
+  .btn-main:hover{
+    transform:translateY(-2px);
+    box-shadow:0 20px 40px rgba(124,58,237,0.55);
+    background-position:100% 0;
+  }
+
+  @keyframes ctaPulse{
+    0%,100%{
+      transform:translateY(0);
+      box-shadow:0 12px 26px rgba(124,58,237,0.3);
+    }
+    50%{
+      transform:translateY(-2px);
+      box-shadow:0 20px 40px rgba(124,58,237,0.6);
+    }
+  }
 
   /* layout */
   .content{display:grid;grid-template-columns:1fr 380px;gap:22px;margin-top:22px}
@@ -123,9 +147,10 @@
         <p>I help teams fix catalog defects, improve fulfillment readiness, and turn operational data into quick, measurable wins. I combine hands-on catalog & PPC experience with structured analysis and cross-team execution.</p>
 
         <div class="cta-row">
-          <a class="btn" target="_blank" href="https://www.linkedin.com/in/isahilpandita/">Work with me</a>
-          <a class="btn ghost" href="resume.pdf" download>Download resume</a>
-        </div>
+  <a class="btn btn-main" href="mailto:pandxsah@gmail.com?subject=Interested%20in%20your%20profile">Work with me</a>
+  <a class="btn ghost" href="resume.pdf" download>Download resume</a>
+</div>
+
 
         <div class="meta-chips">
           <div class="chip">Catalog Ops</div>
