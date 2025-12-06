@@ -1,721 +1,575 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Sahil Pandita - eCommerce & Ops Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sahil Pandita | eCommerce & Ads Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<!-- Performance: font preconnect + dns-prefetch -->
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link rel="dns-prefetch" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
-<!-- Favicon (uses your profile image) -->
-<link rel="icon" href="profile.webp">
-
-<style>
-  :root{
-    --bg:#0f1724;            /* page background (dark) */
-    --paper:#071025;         /* large card bg */
-    --muted:#94a3b8;
-    --text:#e6eef6;
-    --accent:#7c3aed;        /* change this to swap palette */
-    --accent-2:#06b6d4;
-    --card:#0b1220;
-    --glass: rgba(255,255,255,0.03);
-    --radius:14px;
-    --maxw:1100px;
-    --glass-2: rgba(255,255,255,0.02);
-    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  }
-
-  *{box-sizing:border-box}
-
-  html,body{
-    height:100%;
-    margin:0;
-    background:linear-gradient(180deg,var(--bg),#05121a);
-    color:var(--text);
-    -webkit-font-smoothing:antialiased;
-  }
-
-  a{color:inherit}
-
-  .wrap{
-    max-width:var(--maxw);
-    margin:40px auto;
-    padding:18px;
-  }
-
-  header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    margin-bottom:24px;
-    margin-top:10px;
-    padding:10px 10px 12px;
-    background:rgba(15,23,42,0.96);
-    backdrop-filter:blur(8px);
-    border-radius:16px;
-    border:1px solid rgba(148,163,184,0.25);
-  }
-
-  .brand{
-    display:flex;
-    gap:12px;
-    align-items:center;
-  }
-
-  .brand h1{
-    margin:0;
-    font-size:20px;
-    letter-spacing:0.2px;
-  }
-
-  .brand p{
-    margin:2px 0 0;
-    color:var(--muted);
-    font-size:13px;
-  }
-
-  nav{
-    display:flex;
-    gap:6px;
-  }
-
-  .nav-link{
-    color:var(--muted);
-    text-decoration:none;
-    padding:6px 10px;
-    border-radius:999px;
-    font-size:14px;
-    transition:background .18s ease, color .18s ease;
-  }
-
-  .nav-link:hover{
-    background:rgba(148,163,184,0.16);
-    color:var(--text);
-  }
-
-  /* HERO */
-  .hero{
-    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    padding:28px;
-    border-radius:18px;
-    display:grid;
-    grid-template-columns:1fr 320px;
-    gap:20px;
-    align-items:center;
-    box-shadow:0 12px 40px rgba(2,6,23,0.6);
-  }
-
-  .hero-left h2{
-    margin:0;
-    font-size:28px;
-  }
-
-  .hero-left p{
-    color:var(--muted);
-    margin-top:8px;
-    line-height:1.5;
-  }
-
-  /* Now / Previously bar */
-  .role-bar{
-    margin-top:10px;
-    margin-bottom:14px;
-    padding:10px 14px;
-    border-radius:10px;
-    background:rgba(148,163,184,0.12);
-    border:1px solid rgba(148,163,184,0.2);
-    font-size:14px;
-    display:flex;
-    flex-direction:column;
-    gap:4px;
-    color:var(--text);
-  }
-  .role-bar strong{
-    color:var(--accent-2);
-    font-weight:600;
-  }
-
-  .cta-row{
-    display:flex;
-    gap:12px;
-    margin-top:18px;
-    flex-wrap:wrap;
-  }
-
-  .btn{
-    display:inline-block;
-    padding:12px 18px;
-    border-radius:12px;
-    text-decoration:none;
-    color:white;
-    font-weight:600;
-    transition:transform .18s ease, box-shadow .18s ease;
-    will-change:transform, box-shadow;
-  }
-
-  .btn.btn-main{
-    background:linear-gradient(90deg,var(--accent),var(--accent-2));
-    animation:hoverGlow 4s ease-in-out infinite;
-  }
-
-  .btn.ghost{
-    background:rgba(148,163,184,0.12);
-    border:1px solid rgba(148,163,184,0.25);
-    animation:hoverGlow 4s ease-in-out infinite;
-  }
-
-  /* chips in hero */
-  .meta-chips{
-    display:flex;
-    gap:8px;
-    margin-top:16px;
-    flex-wrap:wrap;
-  }
-
-  .chip{
-    padding:6px 12px;
-    border-radius:6px;
-    background:rgba(124,58,237,0.15);
-    border:1px solid rgba(124,58,237,0.3);
-    font-size:13px;
-    color:var(--muted);
-  }
-
-  @keyframes hoverGlow{
-    0%,100%{ box-shadow:0 0 14px rgba(56,189,248,0.28); }
-    50%{ box-shadow:0 0 24px rgba(56,189,248,0.45); }
-  }
-
-  /* layout */
-  .content{
-    display:grid;
-    grid-template-columns:1fr 380px;
-    gap:22px;
-    margin-top:22px;
-  }
-
-  .card{
-    background:linear-gradient(180deg,var(--card),#071421);
-    padding:18px;
-    border-radius:12px;
-    border:1px solid rgba(255,255,255,0.03);
-  }
-
-  .section-title{
-    font-weight:700;
-    margin:0 0 12px;
-  }
-
-  .skills-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
-  }
-
-  .skill-box{
-    background:var(--glass-2);
-    padding:12px;
-    border-radius:10px;
-    color:var(--muted);
-    font-size:14px;
-  }
-
-  /* case studies */
-  .cases{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:14px;
-  }
-
-  .case{
-    background:linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.01));
-    padding:14px;
-    border-radius:10px;
-    border:1px solid rgba(255,255,255,0.03);
-    transition:transform .18s ease, box-shadow .18s ease;
-  }
-
-  .case:hover{
-    transform:translateY(-6px);
-    box-shadow:0 18px 36px rgba(2,6,23,0.6);
-  }
-
-  .case h4{
-    margin:0 0 8px;
-  }
-
-  .case p{
-    margin:0;
-    color:var(--muted);
-    font-size:14px;
-    line-height:1.45;
-  }
-
-  /* right column - floating contact style */
-  #contact.contact-float{
-    position:sticky;
-    top:28px;
-  }
-
-  .contact-card{
-    padding:16px;
-    border-radius:12px;
-    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    border:1px solid rgba(255,255,255,0.03);
-  }
-
-  .contact-card h3{
-    margin:0 0 6px;
-  }
-
-  .contact-card p{
-    color:var(--muted);
-    margin:0 0 12px;
-  }
-
-  .info-row{
-    display:flex;
-    gap:10px;
-    align-items:center;
-    margin-bottom:10px;
-  }
-
-  .avatar{
-    width:56px;
-    height:56px;
-    border-radius:10px;
-    background:linear-gradient(135deg,var(--accent),var(--accent-2));
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:800;
-    color:white;
-    font-size:18px;
-  }
-
-  .small{
-    font-size:13px;
-    color:var(--muted);
-  }
-
-  .download{
-    display:block;
-    width:100%;
-    text-align:center;
-    padding:10px;
-    border-radius:10px;
-    background:rgba(255,255,255,0.03);
-    text-decoration:none;
-    color:var(--text);
-    font-weight:700;
-  }
-
-  footer{
-    margin-top:32px;
-    text-align:center;
-    color:var(--muted);
-    font-size:13px;
-  }
-
-  /* profile image */
-  .logo-img{
-    width:80px;
-    height:80px;
-    padding:3px;
-    border-radius:50%;
-    box-sizing:border-box;
-    background:linear-gradient(135deg,var(--accent),var(--accent-2));
-    object-fit:cover;
-    box-shadow:0 0 14px rgba(15,23,42,0.9);
-    animation:avatarPulse 4s ease-in-out infinite;
-    transition:transform .22s ease, box-shadow .22s ease;
-    will-change:transform, box-shadow;
-  }
-
-  .logo-img:hover{
-    transform:translateY(-2px) scale(1.03);
-    box-shadow:0 0 24px rgba(56,189,248,0.75);
-  }
-
-  @keyframes avatarPulse{
-    0%,100%{
-      box-shadow:0 0 14px rgba(124,58,237,0.35);
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              light: '#3b82f6',
+              dark: '#2563eb'
+            },
+            secondary: {
+              light: '#10b981',
+              dark: '#059669'
+            }
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.5s ease-in-out',
+            'slide-up': 'slideUp 0.5s ease-out'
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' }
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(20px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' }
+            }
+          }
+        }
+      }
     }
-    50%{
-      box-shadow:0 0 22px rgba(6,182,212,0.6);
+  </script>
+
+  <style>
+    .gradient-text {
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
     }
-  }
-
-  /* modal bottom sheet */
-  .modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.55);
-    backdrop-filter:blur(6px);
-    z-index:999;
-    justify-content:center;
-    align-items:flex-end;
-  }
-
-  .modal-sheet{
-    width:100%;
-    max-width:480px;
-    background:#0b1220;
-    border-radius:18px 18px 0 0;
-    padding:18px 18px 22px;
-    border-top:1px solid rgba(255,255,255,0.08);
-    animation:sheetIn .25s ease-out;
-  }
-
-  .sheet-handle{
-    width:42px;
-    height:4px;
-    border-radius:999px;
-    margin:0 auto 10px;
-    background:rgba(148,163,184,0.6);
-  }
-
-  .modal-title{
-    margin:0;
-    font-size:16px;
-    font-weight:600;
-  }
-
-  .modal-sub{
-    margin:6px 0 0;
-    font-size:13px;
-    color:#9ca3af;
-  }
-
-  .modal-buttons{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    margin-top:16px;
-  }
-
-  .modal-btn{
-    display:block;
-    width:100%;
-    text-align:center;
-    background:linear-gradient(90deg,var(--accent),var(--accent-2));
-    padding:10px;
-    border-radius:10px;
-    text-decoration:none;
-    color:white;
-    font-weight:600;
-    font-size:14px;
-  }
-
-  .modal-btn.secondary{
-    background:transparent;
-    border:1px solid rgba(148,163,184,0.6);
-    color:#e5e7eb;
-  }
-
-  .modal-close{
-    margin-top:14px;
-    display:inline-block;
-    color:#9ca3af;
-    text-decoration:none;
-    font-size:13px;
-  }
-
-  @keyframes sheetIn{
-    from{transform:translateY(40px);opacity:0}
-    to{transform:translateY(0);opacity:1}
-  }
-
-  /* shared hover for both hero buttons */
-  .btn.btn-main:hover,
-  .btn.ghost:hover{
-    transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 0 28px rgba(56,189,248,0.45);
-  }
-
-  /* focus styles for accessibility */
-  .nav-link:focus,
-  .btn:focus,
-  .modal-btn:focus{
-    outline:2px solid var(--accent-2);
-    outline-offset:2px;
-  }
-
-  /* responsive */
-  @media (max-width:980px){
-    .hero{grid-template-columns:1fr}
-    .content{grid-template-columns:1fr}
-    .cases{grid-template-columns:1fr}
-    .brand h1{font-size:18px}
-    #contact.contact-float{position:static;margin-top:16px}
-  }
-</style>
+    .light .gradient-text {
+      background-image: linear-gradient(45deg, #3b82f6, #10b981);
+    }
+    .dark .gradient-text {
+      background-image: linear-gradient(45deg, #60a5fa, #34d399);
+    }
+    .project-card {
+      transition: all 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+    .theme-toggle {
+      transition: all 0.3s ease;
+    }
+    .theme-toggle:hover {
+      transform: rotate(30deg);
+    }
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: currentColor;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+  </style>
 </head>
-<body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <img src="profile.webp" alt="Sahil Pandita" class="logo-img">
-        <div>
-          <h1>Sahil Pandita</h1>
-          <p>eCommerce Specialist · Ads Account Manager · Data & Reporting</p>
+<body class="light bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+  <!-- Header/Navigation -->
+  <header class="fixed w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm">
+    <div class="container mx-auto px-6 py-4">
+      <nav class="flex items-center justify-between">
+        <a href="#home" class="text-2xl font-bold gradient-text">Sahil</a>
+
+        <div class="hidden md:flex space-x-8">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#projects" class="nav-link">Work</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#contact" class="nav-link">Contact</a>
         </div>
-      </div>
-      <nav>
-        <a class="nav-link" href="#about">About</a>
-        <a class="nav-link" href="#cases">Work</a>
-        <a class="nav-link" href="#projects">Projects</a>
-        <a class="nav-link" href="#contact">Contact</a>
+
+        <div class="flex items-center space-x-4">
+          <button id="theme-toggle" class="theme-toggle p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+            <i class="fas fa-moon dark:hidden"></i>
+            <i class="fas fa-sun hidden dark:block"></i>
+          </button>
+
+          <button id="mobile-menu-button" class="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
       </nav>
-    </header>
+    </div>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-left">
-        <h2>Data-driven eCommerce operations and product support.</h2>
-
-        <div class="role-bar">
-          <div><strong>Now:</strong> Media Specialist @ Flywheel Digital</div>
-          <div><strong>Previously:</strong> Amazon Ads (Catalog & PPC)</div>
-        </div>
-
-        <p>I help teams fix catalog defects, improve fulfillment readiness, and turn operational data into quick, measurable wins. I combine hands-on catalog & PPC experience with structured analysis and cross-team execution.</p>
-
-        <div class="cta-row">
-          <a class="btn btn-main" href="#" onclick="openModal(event)">Work with me</a>
-          <a class="btn ghost" href="resume.pdf" download>Download resume</a>
-        </div>
-
-        <div class="meta-chips">
-          <div class="chip">Catalog Ops</div>
-          <div class="chip">Defect Analysis</div>
-          <div class="chip">Excel & Reporting</div>
-          <div class="chip">Amazon PPC</div>
-        </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg">
+      <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link">Work</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#contact" class="nav-link">Contact</a>
       </div>
+    </div>
+  </header>
 
-      <div>
-        <div class="card" style="text-align:center">
-          <div style="font-weight:800;font-size:18px">Now</div>
-          <div style="color:var(--muted);margin-top:8px">
-            Open to roles: Product Ops, Supply Chain Analyst, eCommerce Ops
-          </div>
-          <div style="margin-top:14px">
-            <a class="download" href="resume.pdf" download>Download Resume (PDF)</a>
-          </div>
-          <div class="small" style="margin-top:10px">Based in Bangalore • Open to remote/hybrid</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- content -->
-    <div class="content">
-      <main>
-        <div id="about" class="card" style="margin-bottom:14px">
-          <h3 class="section-title">About</h3>
-          <p style="color:var(--muted);line-height:1.6">
-            I specialise in solving catalog and fulfillment problems that block sales. I bring hands-on experience in Amazon catalog operations, PPC data audits, and process automation to reduce defects and speed up launches. I work closely with product and engineering teams to test fixes and ensure production stability.
+  <!-- Hero Section -->
+  <section id="home" class="min-h-screen flex items-center pt-20">
+    <div class="container mx-auto px-6 py-20">
+      <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-12 md:mb-0 animate-fade-in">
+          <h1 class="text-4xl md:text-6xl font-bold mb-4">
+            Hi, I'm <span class="gradient-text">Sahil Pandita</span>
+          </h1>
+          <h2 class="text-2xl md:text-3xl font-semibold mb-6">
+            eCommerce Ops & Ads Specialist
+          </h2>
+          <p class="text-lg mb-6 text-gray-600 dark:text-gray-300 max-w-lg">
+            I help brands fix catalog issues, improve fulfillment readiness, and scale performance on Amazon and other marketplaces using clean data, structured processes, and smart advertising.
           </p>
-        </div>
 
-        <section id="cases" class="card" style="margin-bottom:14px">
-          <h3 class="section-title">Selected Work</h3>
-          <div class="cases">
-            <article class="case">
-              <h4>Operational Defect Fix — High-priority SKUs</h4>
-              <p><strong>Problem:</strong> Attribute mismatch caused discoverability failures and fulfilment errors. <strong>Action:</strong> Full catalog audit, attribute standardisation and release verification. <strong>Result:</strong> Faster indexing and fewer production defects.</p>
-            </article>
-
-            <article class="case">
-              <h4>Catalog Update Automation</h4>
-              <p><strong>Problem:</strong> Manual recurring updates delayed launches. <strong>Action:</strong> Built templated upload flow and reduced manual steps. <strong>Result:</strong> 35% faster update cycle and fewer rework tickets.</p>
-            </article>
-
-            <article class="case">
-              <h4>Amazon PPC Spend Clean-up</h4>
-              <p><strong>Problem:</strong> High ACoS and wasted bids. <strong>Action:</strong> Search-term filtering, negative keyword lists, and bid refactor. <strong>Result:</strong> Improved efficiency and better ROAS on targeted SKUs.</p>
-            </article>
-
-            <article class="case">
-              <h4>New Product Launch Framework</h4>
-              <p><strong>Goal:</strong> Fast keyword indexing and stable sales. <strong>Action:</strong> Auto + manual campaign structure, long-tail focus, and daily checks. <strong>Result:</strong> Faster keyword visibility and steadier early sales.</p>
-            </article>
-          </div>
-          <div style="margin-top:12px;color:var(--muted);font-size:13px">
-            Want the full audit? Email me and I’ll share the case PDFs and raw data extracts.
-          </div>
-        </section>
-
-        <section id="projects" class="card" style="margin-bottom:14px">
-          <h3 class="section-title">Projects & Tools</h3>
-          <div class="skills-grid" style="margin-top:8px">
-            <div class="skill-box">
-              <strong>Reporting</strong>
-              <div class="small" style="margin-top:6px;color:var(--muted)">
-                Weekly dashboards, pivot summaries, automated CSV prep
-              </div>
-            </div>
-            <div class="skill-box">
-              <strong>Audit Kits</strong>
-              <div class="small" style="margin-top:6px;color:var(--muted)">
-                Search-term audit template, defect checklists, launch readiness kit
-              </div>
-            </div>
-            <div class="skill-box">
-              <strong>SQL & Data</strong>
-              <div class="small" style="margin-top:6px;color:var(--muted)">
-                Basic joins, group by, and sample data pulls (I’m learning)
-              </div>
-            </div>
-            <div class="skill-box">
-              <strong>Campaigns</strong>
-              <div class="small" style="margin-top:6px;color:var(--muted)">
-                Campaign structure, match type clean-up, negative mapping
-              </div>
-            </div>
-          </div>
-        </section>
-
-      </main>
-
-      <aside id="contact" class="contact-float">
-        <div class="contact-card">
-          <div style="display:flex;gap:12px;align-items:center;margin-bottom:10px">
-            <div class="avatar">SP</div>
-            <div>
-              <div style="font-weight:700">Sahil Pandita</div>
-              <div class="small" style="margin-top:6px;color:var(--muted)">
-                eCommerce & Ops Specialist — Bangalore
-              </div>
-            </div>
+          <div class="mb-6 text-sm text-gray-600 dark:text-gray-300">
+            <div><span class="font-semibold">Now:</span> Media Specialist @ Flywheel Digital</div>
+            <div><span class="font-semibold">Previously:</span> Amazon Ads & eCommerce Ops (Catalog & PPC)</div>
+            <div>Bangalore · Open to Product Ops / eCommerce Ops / Ads roles</div>
           </div>
 
-          <div style="margin-bottom:10px">
-            <div class="small">Email</div>
-            <div style="margin-top:6px">
-              <a href="mailto:pandxsah@gmail.com" style="color:var(--text);font-weight:600">
-                pandxsah@gmail.com
-              </a>
-            </div>
-          </div>
-
-          <div style="margin-bottom:10px">
-            <div class="small">LinkedIn</div>
-            <div style="margin-top:6px">
-              <a href="https://www.linkedin.com/in/isahilpandita"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 style="color:var(--text);font-weight:600">
-                linkedin.com/in/isahilpandita
-              </a>
-            </div>
-          </div>
-
-          <div style="margin-top:12px">
-            <a class="download" href="mailto:pandxsah@gmail.com?subject=Interested%20in%20your%20profile">
-              Contact via Email
+          <div class="flex space-x-4">
+            <a href="#contact" class="px-6 py-3 bg-primary-light dark:bg-primary-dark text-white rounded-lg hover:opacity-90 transition-opacity">
+              Work with me
+            </a>
+            <a href="#projects" class="px-6 py-3 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+              View my work
             </a>
           </div>
         </div>
-      </aside>
+
+        <div class="md:w-1/2 flex justify-center animate-slide-up">
+          <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary-light dark:border-primary-dark">
+            <!-- Use your GitHub-hosted image if you like: profile.webp -->
+            <img src="profile.webp"
+                 alt="Sahil Pandita"
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-primary-light dark:bg-primary-dark opacity-10"></div>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <footer>
-      Built & maintained by Sahil — portfolio & case studies available on request
-    </footer>
-  </div>
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-gray-100 dark:bg-gray-800">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-12 text-center">About <span class="gradient-text">Me</span></h2>
 
-  <!-- Contact Modal -->
-  <div id="contactModal"
-       class="modal"
-       role="dialog"
-       aria-modal="true"
-       aria-label="Contact options">
-    <div class="modal-sheet">
-      <div class="sheet-handle"></div>
-      <h3 class="modal-title">Talk to me</h3>
-      <p class="modal-sub">Choose how you want to connect.</p>
+      <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+          <div class="w-64 h-64 rounded-lg overflow-hidden shadow-lg">
+            <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?auto=format&fit=crop&w=900&q=80"
+                 alt="eCommerce workspace"
+                 class="w-full h-full object-cover">
+          </div>
+        </div>
 
-      <div class="modal-buttons">
-        <a class="modal-btn"
-           href="mailto:pandxsah@gmail.com?subject=Hello%20Sahil">📧 Email me</a>
+        <div class="md:w-2/3 md:pl-12">
+          <h3 class="text-2xl font-semibold mb-4">Who I Am</h3>
+          <p class="mb-6 text-gray-600 dark:text-gray-300">
+            I work at the intersection of eCommerce operations, catalog quality, and performance advertising.
+            Over the last few years, I’ve worked on Amazon catalog ops, troubleshooting defects, building
+            reporting flows, and optimising PPC campaigns across multiple brands and categories.
+          </p>
+          <p class="mb-6 text-gray-600 dark:text-gray-300">
+            I enjoy taking messy data or broken processes and turning them into clear, repeatable playbooks:
+            from fixing high-impact catalog issues before peak events to improving ROAS by cleaning up search
+            terms and campaign structures.
+          </p>
 
-        <a class="modal-btn"
-           href="https://www.linkedin.com/in/isahilpandita"
-           target="_blank"
-           rel="noopener noreferrer">💼 Open LinkedIn</a>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm">
+              <div class="flex items-center mb-4">
+                <div class="p-3 rounded-full bg-primary-light/10 dark:bg-primary-dark/10 mr-4">
+                  <i class="fas fa-truck-loading text-primary-light dark:text-primary-dark"></i>
+                </div>
+                <h4 class="font-semibold">eCommerce & Ops</h4>
+              </div>
+              <p class="text-gray-600 dark:text-gray-300">
+                Catalog management, defect analysis, launch readiness, and day-to-day marketplace operations.
+              </p>
+            </div>
 
-        <a class="modal-btn"
-           href="https://wa.me/917780871070"
-           target="_blank"
-           rel="noopener noreferrer">📱 WhatsApp</a>
+            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm">
+              <div class="flex items-center mb-4">
+                <div class="p-3 rounded-full bg-secondary-light/10 dark:bg-secondary-dark/10 mr-4">
+                  <i class="fas fa-bullseye text-secondary-light dark:text-secondary-dark"></i>
+                </div>
+                <h4 class="font-semibold">Ads & Growth</h4>
+              </div>
+              <p class="text-gray-600 dark:text-gray-300">
+                Amazon PPC strategy and optimisation, search term audits, basic Google Ads, and performance reporting.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <a class="modal-btn"
-           href="resume.pdf"
-           download>📄 Download resume</a>
+  <!-- Projects / Case Studies Section -->
+  <section id="projects" class="py-20">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-12 text-center">Selected <span class="gradient-text">Work</span></h2>
 
-        <button id="copyEmailBtn"
-                class="modal-btn secondary"
-                type="button"
-                onclick="copyEmail()">📋 Copy email</button>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Case Study 1 -->
+        <div class="project-card bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
+                 alt="Operations dashboard"
+                 class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Operational Defect Fix for High-Priority SKUs</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Identified and corrected catalog attribute mismatches that were blocking discoverability and fulfilment
+              for key products ahead of a peak period.
+            </p>
+            <ul class="text-sm text-gray-600 dark:text-gray-300 mb-4 list-disc list-inside">
+              <li><strong>Problem:</strong> High defect rate and broken search visibility.</li>
+              <li><strong>Action:</strong> Full catalog audit, attribute clean-up, validation with product/tech.</li>
+              <li><strong>Result:</strong> Fewer production issues and faster indexing before peak.</li>
+            </ul>
+            <div class="flex space-x-3 text-sm">
+              <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full">Catalog Ops</span>
+              <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full">Data Audit</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case Study 2 -->
+        <div class="project-card bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1200&q=80"
+                 alt="Spreadsheet automation"
+                 class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Catalog Update Automation</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Reduced manual work in recurring catalog updates by building templates and process checks for the team.
+            </p>
+            <ul class="text-sm text-gray-600 dark:text-gray-300 mb-4 list-disc list-inside">
+              <li><strong>Problem:</strong> Slow, error-prone manual updates delaying launches.</li>
+              <li><strong>Action:</strong> Standardised templates, removed redundant steps, added simple checks.</li>
+              <li><strong>Result:</strong> ~35% faster update cycles and fewer rework tickets.</li>
+            </ul>
+            <div class="flex space-x-3 text-sm">
+              <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full">Excel</span>
+              <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full">Process</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case Study 3 -->
+        <div class="project-card bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1200&q=80"
+                 alt="Campaign performance"
+                 class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Amazon PPC Spend Clean-up</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Cleaned search terms and restructured campaigns to reduce wasted spend and focus on high-intent traffic.
+            </p>
+            <ul class="text-sm text-gray-600 dark:text-gray-300 mb-4 list-disc list-inside">
+              <li><strong>Problem:</strong> High ACoS and scattered keyword structure.</li>
+              <li><strong>Action:</strong> Search term audit, negatives, tighter match types, bid refactor.</li>
+              <li><strong>Result:</strong> Better ROAS and cleaner campaign structure for scaling.</li>
+            </ul>
+            <div class="flex space-x-3 text-sm">
+              <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full">Amazon PPC</span>
+              <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full">Search Terms</span>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      <a href="#"
-         class="modal-close"
-         onclick="closeModal(event)">Close</a>
+      <div class="text-center mt-12">
+        <a href="mailto:pandxsah@gmail.com?subject=Request%20for%20detailed%20case%20studies"
+           class="px-6 py-3 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors inline-flex items-center">
+          Request detailed case studies <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
     </div>
-  </div>
+  </section>
 
-<script>
-function openModal(e){
-  if(e) e.preventDefault();
-  const modal = document.getElementById("contactModal");
-  if(modal){ modal.style.display = "flex"; }
-}
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 bg-gray-100 dark:bg-gray-800">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-12 text-center">My <span class="gradient-text">Skills</span></h2>
 
-function closeModal(e){
-  if(e) e.preventDefault();
-  const modal = document.getElementById("contactModal");
-  if(modal){ modal.style.display = "none"; }
-}
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
 
-// close when tapping outside the sheet
-window.addEventListener("click", function(event){
-  const modal = document.getElementById("contactModal");
-  if(!modal) return;
-  if(event.target === modal){
-    closeModal();
-  }
-});
+        <!-- Skill 1: Amazon Ads -->
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm text-center">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-primary-light/10 dark:bg-primary-dark/10 rounded-full">
+            <i class="fas fa-bullhorn text-3xl text-primary-light dark:text-primary-dark"></i>
+          </div>
+          <h3 class="font-semibold mb-2">Amazon Ads</h3>
+          <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+            <div class="bg-primary-light dark:bg-primary-dark h-2.5 rounded-full" style="width: 85%"></div>
+          </div>
+        </div>
 
-// close on Escape key
-window.addEventListener("keydown", function(e){
-  if(e.key === "Escape"){
-    closeModal();
-  }
-});
+        <!-- Skill 2: Catalog Ops -->
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm text-center">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-primary-light/10 dark:bg-primary-dark/10 rounded-full">
+            <i class="fas fa-box-open text-3xl text-primary-light dark:text-primary-dark"></i>
+          </div>
+          <h3 class="font-semibold mb-2">Catalog Ops</h3>
+          <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+            <div class="bg-primary-light dark:bg-primary-dark h-2.5 rounded-full" style="width: 90%"></div>
+          </div>
+        </div>
 
-function copyEmail(){
-  const email = "pandxsah@gmail.com";
-  const btn = document.getElementById("copyEmailBtn");
-  if(navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText(email).then(function(){
-      if(btn){
-        btn.textContent = "Copied ✔";
-        setTimeout(function(){ btn.textContent = "📋 Copy email"; }, 1500);
-      }
+        <!-- Skill 3: Reporting & Excel -->
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm text-center">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-primary-light/10 dark:bg-primary-dark/10 rounded-full">
+            <i class="fas fa-table text-3xl text-primary-light dark:text-primary-dark"></i>
+          </div>
+          <h3 class="font-semibold mb-2">Excel & Reporting</h3>
+          <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+            <div class="bg-primary-light dark:bg-primary-dark h-2.5 rounded-full" style="width: 90%"></div>
+          </div>
+        </div>
+
+        <!-- Skill 4: SQL & Data -->
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm text-center">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-primary-light/10 dark:bg-primary-dark/10 rounded-full">
+            <i class="fas fa-database text-3xl text-primary-light dark:text-primary-dark"></i>
+          </div>
+          <h3 class="font-semibold mb-2">SQL (Basics)</h3>
+          <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+            <div class="bg-primary-light dark:bg-primary-dark h-2.5 rounded-full" style="width: 60%"></div>
+          </div>
+        </div>
+
+        <!-- Skill 5: Product Ops -->
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm text-center">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-secondary-light/10 dark:bg-secondary-dark/10 rounded-full">
+            <i class="fas fa-cubes text-3xl text-secondary-light dark:text-secondary-dark"></i>
+          </div>
+          <h3 class="font-semibold mb-2">Product Ops</h3>
+          <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+            <div class="bg-secondary-light dark:bg-secondary-dark h-2.5 rounded-full" style="width: 70%"></div>
+          </div>
+        </div>
+
+        <!-- Skill 6: Campaign Strategy -->
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm text-center">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-secondary-light/10 dark:bg-secondary-dark/10 rounded-full">
+            <i class="fas fa-project-diagram text-3xl text-secondary-light dark:text-secondary-dark"></i>
+          </div>
+          <h3 class="font-semibold mb-2">Campaign Strategy</h3>
+          <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+            <div class="bg-secondary-light dark:bg-secondary-dark h-2.5 rounded-full" style="width: 80%"></div>
+          </div>
+        </div>
+
+        <!-- Skill 7: Communication -->
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm text-center">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-secondary-light/10 dark:bg-secondary-dark/10 rounded-full">
+            <i class="fas fa-comments text-3xl text-secondary-light dark:text-secondary-dark"></i>
+          </div>
+          <h3 class="font-semibold mb-2">Stakeholder Communication</h3>
+          <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+            <div class="bg-secondary-light dark:bg-secondary-dark h-2.5 rounded-full" style="width: 88%"></div>
+          </div>
+        </div>
+
+        <!-- Skill 8: Process Building -->
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm text-center">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-secondary-light/10 dark:bg-secondary-dark/10 rounded-full">
+            <i class="fas fa-stream text-3xl text-secondary-light dark:text-secondary-dark"></i>
+          </div>
+          <h3 class="font-semibold mb-2">Playbooks & SOPs</h3>
+          <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+            <div class="bg-secondary-light dark:bg-secondary-dark h-2.5 rounded-full" style="width: 85%"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-12 text-center">Get In <span class="gradient-text">Touch</span></h2>
+
+      <div class="flex flex-col md:flex-row">
+        <div class="md:w-1/2 mb-12 md:mb-0 md:pr-8">
+          <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+          <p class="mb-8 text-gray-600 dark:text-gray-300">
+            Open to full-time roles and interesting projects in eCommerce, product ops, and performance marketing.
+            Reach out if you’d like to see more data, dashboards, or detailed case studies.
+          </p>
+
+          <div class="space-y-6">
+            <div class="flex items-start">
+              <div class="p-3 rounded-full bg-primary-light/10 dark:bg-primary-dark/10 mr-4">
+                <i class="fas fa-envelope text-primary-light dark:text-primary-dark"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold">Email</h4>
+                <p class="text-gray-600 dark:text-gray-300">
+                  <a href="mailto:pandxsah@gmail.com">pandxsah@gmail.com</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="p-3 rounded-full bg-primary-light/10 dark:bg-primary-dark/10 mr-4">
+                <i class="fab fa-linkedin-in text-primary-light dark:text-primary-dark"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold">LinkedIn</h4>
+                <p class="text-gray-600 dark:text-gray-300">
+                  <a href="https://www.linkedin.com/in/isahilpandita"
+                     target="_blank"
+                     rel="noopener noreferrer">
+                    linkedin.com/in/isahilpandita
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="p-3 rounded-full bg-primary-light/10 dark:bg-primary-dark/10 mr-4">
+                <i class="fas fa-map-marker-alt text-primary-light dark:text-primary-dark"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold">Location</h4>
+                <p class="text-gray-600 dark:text-gray-300">Bangalore, India</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <h4 class="font-semibold mb-4">Social</h4>
+            <div class="flex space-x-4">
+              <a href="https://github.com/sahilpandita97"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="p-3 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/isahilpandita"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="p-3 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="md:w-1/2">
+          <!-- Simple contact form (non-functional, presentational) -->
+          <form class="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-sm">
+            <div class="mb-6">
+              <label for="name" class="block mb-2 font-medium">Name</label>
+              <input type="text" id="name"
+                     class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark bg-transparent transition-colors">
+            </div>
+
+            <div class="mb-6">
+              <label for="email" class="block mb-2 font-medium">Email</label>
+              <input type="email" id="email"
+                     class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark bg-transparent transition-colors">
+            </div>
+
+            <div class="mb-6">
+              <label for="subject" class="block mb-2 font-medium">Subject</label>
+              <input type="text" id="subject"
+                     class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark bg-transparent transition-colors">
+            </div>
+
+            <div class="mb-6">
+              <label for="message" class="block mb-2 font-medium">Message</label>
+              <textarea id="message" rows="5"
+                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark bg-transparent transition-colors"></textarea>
+            </div>
+
+            <button type="submit"
+                    class="w-full px-6 py-3 bg-primary-light dark:bg-primary-dark text-white rounded-lg hover:opacity-90 transition-opacity">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 dark:bg-gray-800 py-12">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <a href="#home" class="text-2xl font-bold gradient-text">Sahil</a>
+          <p class="mt-2 text-gray-600 dark:text-gray-300">© 2025 Sahil Pandita · Portfolio</p>
+        </div>
+
+        <div class="flex space-x-6">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#projects" class="nav-link">Work</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const htmlEl = document.documentElement;
+
+    const savedTheme = localStorage.getItem('theme') ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+    htmlEl.classList.remove('light', 'dark');
+    htmlEl.classList.add(savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const current = htmlEl.classList.contains('dark') ? 'dark' : 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      htmlEl.classList.remove('light', 'dark');
+      htmlEl.classList.add(next);
+      localStorage.setItem('theme', next);
     });
-  }else{
-    window.location.href = "mailto:" + email;
-  }
-}
-</script>
 
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
 </body>
 </html>
