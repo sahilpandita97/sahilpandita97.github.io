@@ -272,6 +272,12 @@
   0%,100%{ box-shadow:0 0 14px rgba(56,189,248,0.28); }
   50%{ box-shadow:0 0 24px rgba(56,189,248,0.45); }
 }
+/* force hover behaviour for both */
+.btn.btn-main:hover,
+.btn.ghost:hover{
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 0 28px rgba(56,189,248,0.45);
+}
 </style>
 </head>
 <body>
