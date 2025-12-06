@@ -121,47 +121,84 @@
     .brand h1{font-size:18px}
   }
   .modal{
-  display:none;
-  position:fixed;top:0;left:0;width:100%;height:100%;
-  background:rgba(0,0,0,0.6);
-  align-items:center;justify-content:center;
-  backdrop-filter:blur(4px);
-  z-index:999;
-}
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.55);
+    backdrop-filter:blur(6px);
+    z-index:999;
+    justify-content:center;
+    align-items:flex-end;
+  }
 
-.modal-content{
-  background:#0b1220;
-  padding:20px;
-  border-radius:12px;
-  width:90%;max-width:320px;
-  text-align:center;
-  border:1px solid rgba(255,255,255,0.05);
-}
+  .modal-sheet{
+    width:100%;
+    max-width:480px;
+    background:#0b1220;
+    border-radius:18px 18px 0 0;
+    padding:18px 18px 22px;
+    border-top:1px solid rgba(255,255,255,0.08);
+    animation:sheetIn .25s ease-out;
+  }
 
-.modal-buttons{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  margin-top:16px;
-}
+  .sheet-handle{
+    width:42px;
+    height:4px;
+    border-radius:999px;
+    margin:0 auto 10px;
+    background:rgba(148,163,184,0.6);
+  }
 
-.modal-btn{
-  display:block;
-  background:linear-gradient(90deg,var(--accent),var(--accent-2));
-  padding:10px;
-  border-radius:8px;
-  text-decoration:none;
-  color:white;
-  font-weight:600;
-}
+  .modal-title{
+    margin:0;
+    font-size:16px;
+    font-weight:600;
+  }
 
-.modal-close{
-  margin-top:14px;
-  display:inline-block;
-  color:#9CA3AF;
-  text-decoration:none;
-  font-size:13px;
-}
+  .modal-sub{
+    margin:6px 0 0;
+    font-size:13px;
+    color:#9ca3af;
+  }
+
+  .modal-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:16px;
+  }
+
+  .modal-btn{
+    display:block;
+    width:100%;
+    text-align:center;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    padding:10px;
+    border-radius:10px;
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+    font-size:14px;
+  }
+
+  .modal-btn.secondary{
+    background:transparent;
+    border:1px solid rgba(148,163,184,0.6);
+    color:#e5e7eb;
+  }
+
+  .modal-close{
+    margin-top:14px;
+    display:inline-block;
+    color:#9ca3af;
+    text-decoration:none;
+    font-size:13px;
+  }
+
+  @keyframes sheetIn{
+    from{transform:translateY(40px);opacity:0}
+    to{transform:translateY(0);opacity:1}
+  }
 
 </style>
 </head>
@@ -292,35 +329,59 @@
 
     <footer>Built & maintained by Sahil — portfolio & case studies available on request</footer>
   </div>
-  <div id="contactModal" class="modal">
-  <div class="modal-content">
-    <h3>Choose an option</h3>
-    <p style="color:#9CA3AF;font-size:14px;margin-top:6px">How would you like to contact me?</p>
+<div id="contactModal" class="modal">
+  <div class="modal-sheet">
+    <div class="sheet-handle"></div>
+    <h3 class="modal-title">Talk to me</h3>
+    <p class="modal-sub">Choose how you want to connect.</p>
 
     <div class="modal-buttons">
-      <a class="modal-btn" href="mailto:pandxsah@gmail.com?subject=Hello%20Sahil">Email me</a>
-      <a class="modal-btn" href="https://www.linkedin.com/in/isahilpandita" target="_blank">LinkedIn</a>
+      <a class="modal-btn" href="mailto:pandxsah@gmail.com?subject=Hello%20Sahil">📧 Email me</a>
+      <a class="modal-btn" href="https://www.linkedin.com/in/isahilpandita" target="_blank">💼 Open LinkedIn</a>
+      <a class="modal-btn" href="https://wa.me/917780871070" target="_blank">📱 WhatsApp</a>
+      <a class="modal-btn" href="resume.pdf" download>📄 Download resume</a>
+      <button id="copyEmailBtn" class="modal-btn secondary" type="button" onclick="copyEmail()">📋 Copy email</button>
     </div>
 
     <a href="javascript:void(0)" class="modal-close" onclick="closeModal()">Close</a>
   </div>
 </div>
+
 <script>
 function openModal(){
-  document.getElementById("contactModal").style.display = "flex";
+  const modal = document.getElementById("contactModal");
+  if(modal){ modal.style.display = "flex"; }
 }
 
 function closeModal(){
-  document.getElementById("contactModal").style.display = "none";
+  const modal = document.getElementById("contactModal");
+  if(modal){ modal.style.display = "none"; }
 }
 
-// close modal when clicking outside
-window.onclick = function(event){
+// close when tapping outside the sheet
+window.addEventListener("click", function(event){
   const modal = document.getElementById("contactModal");
+  if(!modal) return;
   if(event.target === modal){
     closeModal();
   }
-};
+});
+
+function copyEmail(){
+  const email = "pandxsah@gmail.com";
+  const btn = document.getElementById("copyEmailBtn");
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(email).then(function(){
+      if(btn){
+        btn.textContent = "Copied ✔";
+        setTimeout(function(){ btn.textContent = "📋 Copy email"; }, 1500);
+      }
+    });
+  }else{
+    // basic fallback: open mail client
+    window.location.href = "mailto:" + email;
+  }
+}
 </script>
 
 </body>
