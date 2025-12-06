@@ -188,13 +188,18 @@
           </div>
 
           <div class="flex space-x-4">
-            <a href="#contact" class="px-6 py-3 bg-primary-light dark:bg-primary-dark text-white rounded-lg hover:opacity-90 transition-opacity">
-              Work with me
-            </a>
-            <a href="#projects" class="px-6 py-3 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-              View my work
-            </a>
-          </div>
+  <button onclick="openModal()" class="px-6 py-3 bg-primary-light dark:bg-primary-dark text-white rounded-lg hover:opacity-90 transition-opacity animate-pulse">
+    Work with me
+  </button>
+
+  <a href="resume.pdf" download class="px-6 py-3 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+    Download resume
+  </a>
+
+  <a href="#projects" class="px-6 py-3 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+    View my work
+  </a>
+</div>
         </div>
 
         <div class="md:w-1/2 flex justify-center animate-slide-up">
@@ -609,5 +614,65 @@
       mobileMenu.classList.toggle('hidden');
     });
   </script>
+  <div id="contactModal"
+     class="fixed inset-0 bg-black/60 backdrop-blur-md hidden items-end justify-center z-[9999]">
+
+  <div class="bg-gray-900 w-full max-w-md rounded-t-2xl p-6 animate-slide-up">
+
+    <div class="w-12 h-1 bg-gray-500 rounded-full mx-auto mb-4"></div>
+
+    <h3 class="text-xl font-semibold mb-2">Start a conversation</h3>
+    <p class="text-gray-400 text-sm mb-6">Choose how you want to connect.</p>
+
+    <div class="space-y-3">
+      <a class="block bg-primary-light px-6 py-3 rounded-lg text-white text-center font-semibold"
+         href="mailto:pandxsah@gmail.com">📧 Email</a>
+
+      <a class="block bg-gray-800 px-6 py-3 rounded-lg text-white text-center"
+         target="_blank"
+         href="https://www.linkedin.com/in/isahilpandita">
+         💼 LinkedIn
+      </a>
+
+      <a class="block bg-gray-800 px-6 py-3 rounded-lg text-white text-center"
+         target="_blank"
+         href="https://wa.me/917780871070">
+         📱 WhatsApp
+      </a>
+
+      <a class="block bg-gray-800 px-6 py-3 rounded-lg text-white text-center"
+         href="resume.pdf" download>
+         📄 Download Resume
+      </a>
+
+      <button id="copyEmailBtn"
+              onclick="copyEmail()"
+              class="block w-full bg-gray-800 px-6 py-3 rounded-lg text-white text-center">
+         📋 Copy email
+      </button>
+    </div>
+
+    <button onclick="closeModal()" class="mt-4 text-gray-400 text-sm w-full text-center">
+      Close
+    </button>
+
+  </div>
+</div>
+  <script>
+function openModal(){
+  document.getElementById("contactModal").classList.remove("hidden");
+}
+
+function closeModal(){
+  document.getElementById("contactModal").classList.add("hidden");
+}
+
+// copy email
+function copyEmail(){
+  navigator.clipboard.writeText("pandxsah@gmail.com");
+  document.getElementById("copyEmailBtn").innerText = "Copied!";
+  setTimeout(()=>{document.getElementById("copyEmailBtn").innerText = "📋 Copy email";},1400)
+}
+</script>
 </body>
 </html>
