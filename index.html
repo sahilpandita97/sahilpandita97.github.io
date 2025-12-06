@@ -1,49 +1,102 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sahil Pandita — eCommerce & Ops Portfolio</title>
-  <style>
-    :root{
-      --bg:#f6f7fb;
-      --card:#ffffff;
-      --muted:#6b7280;
-      --accent:#0f172a;
-      --accent-2:#0ea5a4;
-      --maxw:1050px;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--accent);-webkit-font-smoothing:antialiased;line-height:1.45}
-    .wrap{max-width:var(--maxw);margin:36px auto;padding:22px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}
-    .brand{display:flex;align-items:center;gap:14px}
-    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent-2),#06b6d4);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
-    h1{margin:0;font-size:20px}
-    p.lead{margin:6px 0 0;color:var(--muted);font-size:14px}
-    nav{display:flex;gap:12px}
-    a.nav{color:var(--muted);text-decoration:none;font-size:14px}
-    .layout{display:grid;grid-template-columns:1fr 340px;gap:20px}
-    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(12,22,36,0.04)}
-    .section{margin-bottom:18px}
-    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-    .chip{background:#eef2ff;padding:6px 10px;border-radius:999px;font-size:13px;color:#1f2937}
-    .case-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
-    .case{padding:12px;border-radius:8px;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid rgba(11,22,40,0.03)}
-    .case h3{margin:0 0 8px;font-size:15px}
-    .case p{margin:0;color:var(--muted);font-size:13px}
-    .right .resume-btn{display:block;padding:10px 14px;background:var(--accent);color:white;text-decoration:none;border-radius:8px;text-align:center;font-weight:600}
-    .meta{color:var(--muted);font-size:13px;margin-top:8px}
-    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px;padding:10px}
-    @media (max-width:880px){
-      .layout{grid-template-columns:1fr}
-      .logo{width:46px;height:46px}
-      .case-grid{grid-template-columns:1fr}
-    }
-    /* simple nav smooth scroll */
-    html{scroll-behavior:smooth}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Sahil Pandita — eCommerce & Ops Portfolio</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0f1724;            /* page background (dark) */
+    --paper:#071025;         /* large card bg */
+    --muted:#94a3b8;
+    --text:#e6eef6;
+    --accent:#7c3aed;        /* change this to swap palette */
+    --accent-2:#06b6d4;
+    --card:#0b1220;
+    --glass: rgba(255,255,255,0.03);
+    --radius:14px;
+    --maxw:1100px;
+    --glass-2: rgba(255,255,255,0.02);
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#05121a);color:var(--text);-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:var(--maxw);margin:40px auto;padding:18px}
+  header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:28px}
+  .brand{display:flex;gap:16px;align-items:center}
+  .logo{
+    width:64px;height:64px;border-radius:12px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    display:flex;align-items:center;justify-content:center;font-weight:800;color:white;font-size:20px;
+    box-shadow:0 8px 28px rgba(16,24,40,0.45);
+  }
+  .brand h1{margin:0;font-size:20px;letter-spacing:0.2px}
+  .brand p{margin:2px 0 0;color:var(--muted);font-size:13px}
+  nav{display:flex;gap:12px}
+  .nav-link{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px;font-size:14px}
+  .nav-link:hover{background:var(--glass);color:var(--text)}
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    padding:28px;border-radius:18px;display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:center;
+    box-shadow:0 12px 40px rgba(2,6,23,0.6);
+  }
+  .hero-left h2{margin:0;font-size:28px}
+  .hero-left p{color:var(--muted);margin-top:8px;line-height:1.5}
+  .cta-row{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+  .btn{
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    color:white;padding:11px 16px;border-radius:10px;text-decoration:none;font-weight:700;box-shadow:0 8px 22px rgba(124,58,237,0.18)
+  }
+  .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
+  .meta-chips{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+  .chip{background:var(--glass);padding:8px 10px;border-radius:999px;color:var(--muted);font-size:13px}
+
+  /* layout */
+  .content{display:grid;grid-template-columns:1fr 380px;gap:22px;margin-top:22px}
+  .card{background:linear-gradient(180deg,var(--card),#071421);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+  .section-title{font-weight:700;margin:0 0 12px}
+  .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+  .skill-box{background:var(--glass-2);padding:12px;border-radius:10px;color:var(--muted);font-size:14px}
+
+  /* case studies */
+  .cases{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .case{
+    background:linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.01));
+    padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .case:hover{transform:translateY(-6px);box-shadow:0 18px 36px rgba(2,6,23,0.6)}
+  .case h4{margin:0 0 8px}
+  .case p{margin:0;color:var(--muted);font-size:14px;line-height:1.45}
+
+  /* right column - floating contact style */
+  .contact-float{position:sticky;top:28px}
+  .contact-card{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
+  .contact-card h3{margin:0 0 6px}
+  .contact-card p{color:var(--muted);margin:0 0 12px}
+  .info-row{display:flex;gap:10px;align-items:center;margin-bottom:10px}
+  .avatar{
+    width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;color:white;
+    font-size:18px;
+  }
+  .small{font-size:13px;color:var(--muted)}
+  .download{display:block;width:100%;text-align:center;padding:10px;border-radius:10px;background:rgba(255,255,255,0.03);text-decoration:none;color:var(--text);font-weight:700}
+
+  footer{margin-top:32px;text-align:center;color:var(--muted);font-size:13px}
+
+  /* responsive */
+  @media (max-width:980px){
+    .hero{grid-template-columns:1fr}
+    .content{grid-template-columns:1fr}
+    .cases{grid-template-columns:1fr}
+    .brand h1{font-size:18px}
+  }
+</style>
 </head>
 <body>
   <div class="wrap">
@@ -52,128 +105,124 @@
         <div class="logo">SP</div>
         <div>
           <h1>Sahil Pandita</h1>
-          <p class="lead">eCommerce operations, Product support & Data analysis</p>
+          <p>eCommerce Operations · Product Support · Data & Reporting</p>
         </div>
       </div>
       <nav>
-        <a class="nav" href="#about">About</a>
-        <a class="nav" href="#skills">Skills</a>
-        <a class="nav" href="#cases">Case Studies</a>
-        <a class="nav" href="#contact">Contact</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#cases">Work</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#contact">Contact</a>
       </nav>
     </header>
 
-    <main class="layout">
-      <section>
-        <div id="about" class="card section">
-          <h2 style="margin-top:0">About</h2>
-          <p style="color:var(--muted);margin-top:6px">
-            I help eCommerce teams solve catalog, fulfillment and product issues using data and process fixes.
-            I have hands on experience with Amazon catalog ops, PPC data, report automation and cross team execution.
-            I focus on clear recommendations, fast fixes, and measurable impact.
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <h2>Data-driven eCommerce operations and product support.</h2>
+        <p>I help teams fix catalog defects, improve fulfillment readiness, and turn operational data into quick, measurable wins. I combine hands-on catalog & PPC experience with structured analysis and cross-team execution.</p>
+
+        <div class="cta-row">
+          <a class="btn" href="#contact">Work with me</a>
+          <a class="btn ghost" href="resume.pdf" download>Download resume</a>
+        </div>
+
+        <div class="meta-chips">
+          <div class="chip">Catalog Ops</div>
+          <div class="chip">Defect Analysis</div>
+          <div class="chip">Excel & Reporting</div>
+          <div class="chip">Amazon PPC</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card" style="text-align:center">
+          <div style="font-weight:800;font-size:18px">Now</div>
+          <div style="color:var(--muted);margin-top:8px">Open to roles: Product Ops, Supply Chain Analyst, eCommerce Ops</div>
+          <div style="margin-top:14px">
+            <a class="download" href="resume.pdf" download>Download Resume (PDF)</a>
+          </div>
+          <div class="small" style="margin-top:10px">Based in Bangalore • Open to remote/hybrid</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- content -->
+    <div class="content">
+      <main>
+        <div id="about" class="card" style="margin-bottom:14px">
+          <h3 class="section-title">About</h3>
+          <p style="color:var(--muted);line-height:1.6">
+            I specialise in solving catalog and fulfillment problems that block sales. I bring hands-on experience in Amazon catalog operations, PPC data audits, and process automation to reduce defects and speed up launches. I work closely with product and engineering teams to test fixes and ensure production stability.
           </p>
         </div>
 
-        <div id="skills" class="card section">
-          <h3 style="margin-top:0">Skills</h3>
-          <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:10px">
-            <div style="min-width:200px">
-              <strong>Data & Reporting</strong>
-              <div class="chips" style="margin-top:8px">
-                <span class="chip">Excel: Pivot, Lookup</span>
-                <span class="chip">SQL basics</span>
-                <span class="chip">Dashboards</span>
-              </div>
-            </div>
-            <div style="min-width:200px">
-              <strong>Ops & Product</strong>
-              <div class="chips" style="margin-top:8px">
-                <span class="chip">Catalog ops</span>
-                <span class="chip">Defect analysis</span>
-                <span class="chip">Feature testing</span>
-              </div>
-            </div>
-            <div style="min-width:200px">
-              <strong>Ads & Growth</strong>
-              <div class="chips" style="margin-top:8px">
-                <span class="chip">Amazon PPC</span>
-                <span class="chip">Campaign audits</span>
-                <span class="chip">Google Ads basics</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <section id="cases" class="card" style="margin-bottom:14px">
+          <h3 class="section-title">Selected Work</h3>
+          <div class="cases">
+            <article class="case">
+              <h4>Operational Defect Fix — High-priority SKUs</h4>
+              <p><strong>Problem:</strong> Attribute mismatch caused discoverability failures and fulfilment errors. <strong>Action:</strong> Full catalog audit, attribute standardisation and release verification. <strong>Result:</strong> Faster indexing and fewer production defects.</p>
+            </article>
 
-        <div id="cases" class="card section">
-          <h3 style="margin-top:0">Case Studies</h3>
-          <div class="case-grid">
             <article class="case">
-              <h3>Operational Defect Fix — High Priority SKUs</h3>
-              <p><strong>Problem</strong>: Data mismatch blocked discoverability. <br><strong>Action</strong>: Catalog audit, attribute cleanup, cross team validation. <br><strong>Result</strong>: Reduced defects and improved readiness for peak.</p>
+              <h4>Catalog Update Automation</h4>
+              <p><strong>Problem:</strong> Manual recurring updates delayed launches. <strong>Action:</strong> Built templated upload flow and reduced manual steps. <strong>Result:</strong> 35% faster update cycle and fewer rework tickets.</p>
             </article>
-            <article class="case">
-              <h3>Catalog Update Automation</h3>
-              <p><strong>Problem</strong>: Manual updates took too long. <br><strong>Action</strong>: Built Excel template and automation steps. <br><strong>Result</strong>: 35% faster update cycle.</p>
-            </article>
-            <article class="case">
-              <h3>Amazon PPC Optimization</h3>
-              <p><strong>Problem</strong>: High ACoS and wasted spend. <br><strong>Action</strong>: Search term clean up, negatives, bid refactor. <br><strong>Result</strong>: Improved ROAS and CTR.</p>
-            </article>
-            <article class="case">
-              <h3>New Product Launch Plan</h3>
-              <p><strong>Goal</strong>: Fast indexing and stable launch. <br><strong>Action</strong>: Auto+manual structure, long tail focus. <br><strong>Result</strong>: Faster keyword indexing.</p>
-            </article>
-          </div>
-          <div style="margin-top:12px;color:var(--muted);font-size:13px">
-            Want a detailed case study? Email me and I will share the full audit PDF and raw data.
-          </div>
-        </div>
 
-        <div id="contact" class="card section">
-          <h3 style="margin-top:0">Contact</h3>
-          <p style="color:var(--muted)">If you want full case studies or role fitment, connect on LinkedIn or email me.</p>
-          <div style="margin-top:12px">
-            <strong>Email</strong>: <a href="mailto:pandxsah@gmail.com">pandxsah@gmail.com</a><br>
-            <strong>LinkedIn</strong>: <a href="https://www.linkedin.com/in/isahilpandita" target="_blank" rel="noopener">linkedin.com/in/isahilpandita</a><br>
-            <strong>Location</strong>: Bangalore, India
-          </div>
-        </div>
-      </section>
+            <article class="case">
+              <h4>Amazon PPC Spend Clean-up</h4>
+              <p><strong>Problem:</strong> High ACoS and wasted bids. <strong>Action:</strong> Search-term filtering, negative keyword lists, and bid refactor. <strong>Result:</strong> Improved efficiency and better ROAS on targeted SKUs.</p>
+            </article>
 
-      <aside class="right">
-        <div class="card">
-          <div style="display:flex;align-items:center;gap:12px">
-            <div style="width:60px;height:60px;border-radius:8px;background:#eef2ff;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent)">SP</div>
+            <article class="case">
+              <h4>New Product Launch Framework</h4>
+              <p><strong>Goal:</strong> Fast keyword indexing and stable sales. <strong>Action:</strong> Auto + manual campaign structure, long-tail focus, and daily checks. <strong>Result:</strong> Faster keyword visibility and steadier early sales.</p>
+            </article>
+          </div>
+          <div style="margin-top:12px;color:var(--muted);font-size:13px">Want the full audit? Email me and I’ll share the case PDFs and raw data extracts.</div>
+        </section>
+
+        <section id="projects" class="card" style="margin-bottom:14px">
+          <h3 class="section-title">Projects & Tools</h3>
+          <div class="skills-grid" style="margin-top:8px">
+            <div class="skill-box"><strong>Reporting</strong><div class="small" style="margin-top:6px;color:var(--muted)">Weekly dashboards, pivot summaries, automated CSV prep</div></div>
+            <div class="skill-box"><strong>Audit Kits</strong><div class="small" style="margin-top:6px;color:var(--muted)">Search-term audit template, defect checklists, launch readiness kit</div></div>
+            <div class="skill-box"><strong>SQL & Data</strong><div class="small" style="margin-top:6px;color:var(--muted)">Basic joins, group by, and sample data pulls (I’m learning)</div></div>
+            <div class="skill-box"><strong>Campaigns</strong><div class="small" style="margin-top:6px;color:var(--muted)">Campaign structure, match type clean-up, negative mapping</div></div>
+          </div>
+        </section>
+
+      </main>
+
+      <aside class="contact-float">
+        <div class="contact-card">
+          <div style="display:flex;gap:12px;align-items:center;margin-bottom:10px">
+            <div class="avatar">SP</div>
             <div>
               <div style="font-weight:700">Sahil Pandita</div>
-              <div class="meta">eCommerce & Ads Specialist</div>
+              <div class="small" style="margin-top:6px;color:var(--muted)">eCommerce & Ops Specialist — Bangalore</div>
             </div>
           </div>
 
-          <div style="margin-top:16px">
-            <a class="resume-btn" href="resume.pdf" download>Download Resume (PDF)</a>
-            <div class="meta">If resume does not download, upload a file named <code>resume.pdf</code> to the repo root</div>
+          <div style="margin-bottom:10px">
+            <div class="small">Email</div>
+            <div style="margin-top:6px"><a href="mailto:pandxsah@gmail.com" style="color:var(--text);font-weight:600">pandxsah@gmail.com</a></div>
           </div>
 
-          <div style="margin-top:18px">
-            <div style="font-weight:700">Quick Contact</div>
-            <div class="meta" style="margin-top:8px">
-              <strong>Email</strong>: <a href="mailto:pandxsah@gmail.com">pandxsah@gmail.com</a><br>
-              <strong>LinkedIn</strong>: <a href="https://www.linkedin.com/in/isahilpandita" target="_blank" rel="noopener">isahilpandita</a>
-            </div>
-            <a class="resume-btn" href="mailto:pandxsah@gmail.com?subject=Portfolio%20Inquiry">Get in touch</a>
+          <div style="margin-bottom:10px">
+            <div class="small">LinkedIn</div>
+            <div style="margin-top:6px"><a href="https://www.linkedin.com/in/isahilpandita" target="_blank" rel="noopener" style="color:var(--text);font-weight:600">linkedin.com/in/isahilpandita</a></div>
           </div>
 
-          <div style="margin-top:12px;color:var(--muted);font-size:13px">
-            Tip: replace placeholder case studies with your real text and screenshots. Use small images and reference them in the case card.
+          <div style="margin-top:12px">
+            <a class="download" href="mailto:pandxsah@gmail.com?subject=Interested%20in%20your%20profile">Contact via Email</a>
           </div>
         </div>
       </aside>
-    </main>
+    </div>
 
-    <footer>
-      Built by Sahil Pandita • View source on GitHub
-    </footer>
+    <footer>Built & maintained by Sahil — portfolio & case studies available on request</footer>
   </div>
 </body>
 </html>
