@@ -199,14 +199,32 @@
     from{transform:translateY(40px);opacity:0}
     to{transform:translateY(0);opacity:1}
   }
-.logo-img{
-  width:64px;
-  height:64px;
-  border-radius:50%;
-  object-fit:cover;
-  border:2px solid rgba(255,255,255,0.2);
-  box-shadow:0 0 20px rgba(0,0,0,0.4);
-}
+  .logo-img{
+    width:80px;
+    height:80px;
+    padding:3px; /* space for the ring */
+    border-radius:50%;
+    box-sizing:border-box;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    object-fit:cover;
+    box-shadow:0 0 14px rgba(15,23,42,0.9);
+    animation:avatarPulse 4s ease-in-out infinite;
+    transition:transform .22s ease, box-shadow .22s ease;
+  }
+
+  .logo-img:hover{
+    transform:translateY(-2px) scale(1.03);
+    box-shadow:0 0 24px rgba(56,189,248,0.75);
+  }
+
+  @keyframes avatarPulse{
+    0%,100%{
+      box-shadow:0 0 14px rgba(124,58,237,0.35);
+    }
+    50%{
+      box-shadow:0 0 22px rgba(6,182,212,0.6);
+    }
+  }
 </style>
 </head>
 <body>
