@@ -4,8 +4,15 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Sahil Pandita - eCommerce & Ops Portfolio</title>
+
+<!-- Performance: font preconnect + dns-prefetch -->
 <link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Favicon (uses your profile image) -->
+<link rel="icon" href="profile.webp">
+
 <style>
   :root{
     --bg:#0f1724;            /* page background (dark) */
@@ -21,11 +28,26 @@
     --glass-2: rgba(255,255,255,0.02);
     font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   }
+
   *{box-sizing:border-box}
-  html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#05121a);color:var(--text);-webkit-font-smoothing:antialiased}
+
+  html,body{
+    height:100%;
+    margin:0;
+    background:linear-gradient(180deg,var(--bg),#05121a);
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+  }
+
   a{color:inherit}
-  .wrap{max-width:var(--maxw);margin:40px auto;padding:18px}
-      header{
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:40px auto;
+    padding:18px;
+  }
+
+  header{
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -79,90 +101,257 @@
   /* HERO */
   .hero{
     background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    padding:28px;border-radius:18px;display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:center;
+    padding:28px;
+    border-radius:18px;
+    display:grid;
+    grid-template-columns:1fr 320px;
+    gap:20px;
+    align-items:center;
     box-shadow:0 12px 40px rgba(2,6,23,0.6);
   }
-  .hero-left h2{margin:0;font-size:28px}
-  .hero-left p{color:var(--muted);margin-top:8px;line-height:1.5}
-  .cta-row{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
-  .btn{
-  display:inline-block;
-  padding:12px 18px;
-  border-radius:12px;
-  text-decoration:none;
-  color:white;
-  font-weight:600;
-  transition:transform .18s ease, box-shadow .18s ease;
-}
-.btn.btn-main{
-  background:linear-gradient(90deg,var(--accent),var(--accent-2));
-  animation:hoverGlow 4s ease-in-out infinite;
-}
-.btn.btn-main:hover{
-  transform:translateY(-2px);
-}
-  .btn.ghost{
-  background:rgba(148,163,184,0.12);
-  border:1px solid rgba(148,163,184,0.25);
-  transition:transform .18s ease, box-shadow .18s ease;
-  animation:hoverGlow 4s ease-in-out infinite;
-}
-.btn.ghost:hover{
-  transform:translateY(-2px);
-  box-shadow:0 0 24px rgba(56,189,248,0.35);
-}}
 
-  @keyframes ctaPulse{
-    0%,100%{
-      transform:translateY(0);
-      box-shadow:0 12px 26px rgba(124,58,237,0.3);
-    }
-    50%{
-      transform:translateY(-2px);
-      box-shadow:0 20px 40px rgba(124,58,237,0.6);
-    }
+  .hero-left h2{
+    margin:0;
+    font-size:28px;
+  }
+
+  .hero-left p{
+    color:var(--muted);
+    margin-top:8px;
+    line-height:1.5;
+  }
+
+  /* Now / Previously bar */
+  .role-bar{
+    margin-top:10px;
+    margin-bottom:14px;
+    padding:10px 14px;
+    border-radius:10px;
+    background:rgba(148,163,184,0.12);
+    border:1px solid rgba(148,163,184,0.2);
+    font-size:14px;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    color:var(--text);
+  }
+  .role-bar strong{
+    color:var(--accent-2);
+    font-weight:600;
+  }
+
+  .cta-row{
+    display:flex;
+    gap:12px;
+    margin-top:18px;
+    flex-wrap:wrap;
+  }
+
+  .btn{
+    display:inline-block;
+    padding:12px 18px;
+    border-radius:12px;
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+    transition:transform .18s ease, box-shadow .18s ease;
+    will-change:transform, box-shadow;
+  }
+
+  .btn.btn-main{
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    animation:hoverGlow 4s ease-in-out infinite;
+  }
+
+  .btn.ghost{
+    background:rgba(148,163,184,0.12);
+    border:1px solid rgba(148,163,184,0.25);
+    animation:hoverGlow 4s ease-in-out infinite;
+  }
+
+  /* chips in hero */
+  .meta-chips{
+    display:flex;
+    gap:8px;
+    margin-top:16px;
+    flex-wrap:wrap;
+  }
+
+  .chip{
+    padding:6px 12px;
+    border-radius:6px;
+    background:rgba(124,58,237,0.15);
+    border:1px solid rgba(124,58,237,0.3);
+    font-size:13px;
+    color:var(--muted);
+  }
+
+  @keyframes hoverGlow{
+    0%,100%{ box-shadow:0 0 14px rgba(56,189,248,0.28); }
+    50%{ box-shadow:0 0 24px rgba(56,189,248,0.45); }
   }
 
   /* layout */
-  .content{display:grid;grid-template-columns:1fr 380px;gap:22px;margin-top:22px}
-  .card{background:linear-gradient(180deg,var(--card),#071421);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
-  .section-title{font-weight:700;margin:0 0 12px}
-  .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-  .skill-box{background:var(--glass-2);padding:12px;border-radius:10px;color:var(--muted);font-size:14px}
+  .content{
+    display:grid;
+    grid-template-columns:1fr 380px;
+    gap:22px;
+    margin-top:22px;
+  }
+
+  .card{
+    background:linear-gradient(180deg,var(--card),#071421);
+    padding:18px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,0.03);
+  }
+
+  .section-title{
+    font-weight:700;
+    margin:0 0 12px;
+  }
+
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
+
+  .skill-box{
+    background:var(--glass-2);
+    padding:12px;
+    border-radius:10px;
+    color:var(--muted);
+    font-size:14px;
+  }
 
   /* case studies */
-  .cases{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .cases{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+  }
+
   .case{
     background:linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.01));
-    padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);
+    padding:14px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,0.03);
     transition:transform .18s ease, box-shadow .18s ease;
   }
-  .case:hover{transform:translateY(-6px);box-shadow:0 18px 36px rgba(2,6,23,0.6)}
-  .case h4{margin:0 0 8px}
-  .case p{margin:0;color:var(--muted);font-size:14px;line-height:1.45}
+
+  .case:hover{
+    transform:translateY(-6px);
+    box-shadow:0 18px 36px rgba(2,6,23,0.6);
+  }
+
+  .case h4{
+    margin:0 0 8px;
+  }
+
+  .case p{
+    margin:0;
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.45;
+  }
 
   /* right column - floating contact style */
-  .contact-float{position:sticky;top:28px}
-  .contact-card{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
-  .contact-card h3{margin:0 0 6px}
-  .contact-card p{color:var(--muted);margin:0 0 12px}
-  .info-row{display:flex;gap:10px;align-items:center;margin-bottom:10px}
+  #contact.contact-float{
+    position:sticky;
+    top:28px;
+  }
+
+  .contact-card{
+    padding:16px;
+    border-radius:12px;
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border:1px solid rgba(255,255,255,0.03);
+  }
+
+  .contact-card h3{
+    margin:0 0 6px;
+  }
+
+  .contact-card p{
+    color:var(--muted);
+    margin:0 0 12px;
+  }
+
+  .info-row{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    margin-bottom:10px;
+  }
+
   .avatar{
-    width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;color:white;
+    width:56px;
+    height:56px;
+    border-radius:10px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+    color:white;
     font-size:18px;
   }
-  .small{font-size:13px;color:var(--muted)}
-  .download{display:block;width:100%;text-align:center;padding:10px;border-radius:10px;background:rgba(255,255,255,0.03);text-decoration:none;color:var(--text);font-weight:700}
 
-  footer{margin-top:32px;text-align:center;color:var(--muted);font-size:13px}
-
-  /* responsive */
-  @media (max-width:980px){
-    .hero{grid-template-columns:1fr}
-    .content{grid-template-columns:1fr}
-    .cases{grid-template-columns:1fr}
-    .brand h1{font-size:18px}
+  .small{
+    font-size:13px;
+    color:var(--muted);
   }
+
+  .download{
+    display:block;
+    width:100%;
+    text-align:center;
+    padding:10px;
+    border-radius:10px;
+    background:rgba(255,255,255,0.03);
+    text-decoration:none;
+    color:var(--text);
+    font-weight:700;
+  }
+
+  footer{
+    margin-top:32px;
+    text-align:center;
+    color:var(--muted);
+    font-size:13px;
+  }
+
+  /* profile image */
+  .logo-img{
+    width:80px;
+    height:80px;
+    padding:3px;
+    border-radius:50%;
+    box-sizing:border-box;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    object-fit:cover;
+    box-shadow:0 0 14px rgba(15,23,42,0.9);
+    animation:avatarPulse 4s ease-in-out infinite;
+    transition:transform .22s ease, box-shadow .22s ease;
+    will-change:transform, box-shadow;
+  }
+
+  .logo-img:hover{
+    transform:translateY(-2px) scale(1.03);
+    box-shadow:0 0 24px rgba(56,189,248,0.75);
+  }
+
+  @keyframes avatarPulse{
+    0%,100%{
+      box-shadow:0 0 14px rgba(124,58,237,0.35);
+    }
+    50%{
+      box-shadow:0 0 22px rgba(6,182,212,0.6);
+    }
+  }
+
+  /* modal bottom sheet */
   .modal{
     display:none;
     position:fixed;
@@ -242,42 +431,30 @@
     from{transform:translateY(40px);opacity:0}
     to{transform:translateY(0);opacity:1}
   }
-  .logo-img{
-    width:80px;
-    height:80px;
-    padding:3px; /* space for the ring */
-    border-radius:50%;
-    box-sizing:border-box;
-    background:linear-gradient(135deg,var(--accent),var(--accent-2));
-    object-fit:cover;
-    box-shadow:0 0 14px rgba(15,23,42,0.9);
-    animation:avatarPulse 4s ease-in-out infinite;
-    transition:transform .22s ease, box-shadow .22s ease;
+
+  /* shared hover for both hero buttons */
+  .btn.btn-main:hover,
+  .btn.ghost:hover{
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 0 28px rgba(56,189,248,0.45);
   }
 
-  .logo-img:hover{
-    transform:translateY(-2px) scale(1.03);
-    box-shadow:0 0 24px rgba(56,189,248,0.75);
+  /* focus styles for accessibility */
+  .nav-link:focus,
+  .btn:focus,
+  .modal-btn:focus{
+    outline:2px solid var(--accent-2);
+    outline-offset:2px;
   }
 
-  @keyframes avatarPulse{
-    0%,100%{
-      box-shadow:0 0 14px rgba(124,58,237,0.35);
-    }
-    50%{
-      box-shadow:0 0 22px rgba(6,182,212,0.6);
-    }
+  /* responsive */
+  @media (max-width:980px){
+    .hero{grid-template-columns:1fr}
+    .content{grid-template-columns:1fr}
+    .cases{grid-template-columns:1fr}
+    .brand h1{font-size:18px}
+    #contact.contact-float{position:static;margin-top:16px}
   }
-  @keyframes hoverGlow{
-  0%,100%{ box-shadow:0 0 14px rgba(56,189,248,0.28); }
-  50%{ box-shadow:0 0 24px rgba(56,189,248,0.45); }
-}
-/* force hover behaviour for both */
-.btn.btn-main:hover,
-.btn.ghost:hover{
-  transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 0 28px rgba(56,189,248,0.45);
-}
 </style>
 </head>
 <body>
@@ -302,13 +479,18 @@
     <section class="hero">
       <div class="hero-left">
         <h2>Data-driven eCommerce operations and product support.</h2>
+
+        <div class="role-bar">
+          <div><strong>Now:</strong> Media Specialist @ Flywheel Digital</div>
+          <div><strong>Previously:</strong> Amazon Ads (Catalog & PPC)</div>
+        </div>
+
         <p>I help teams fix catalog defects, improve fulfillment readiness, and turn operational data into quick, measurable wins. I combine hands-on catalog & PPC experience with structured analysis and cross-team execution.</p>
 
         <div class="cta-row">
-  <a class="btn btn-main" href="javascript:void(0)" onclick="openModal()">Work with me</a>
-  <a class="btn ghost" href="resume.pdf" download>Download resume</a>
-</div>
-
+          <a class="btn btn-main" href="#" onclick="openModal(event)">Work with me</a>
+          <a class="btn ghost" href="resume.pdf" download>Download resume</a>
+        </div>
 
         <div class="meta-chips">
           <div class="chip">Catalog Ops</div>
@@ -321,7 +503,9 @@
       <div>
         <div class="card" style="text-align:center">
           <div style="font-weight:800;font-size:18px">Now</div>
-          <div style="color:var(--muted);margin-top:8px">Open to roles: Product Ops, Supply Chain Analyst, eCommerce Ops</div>
+          <div style="color:var(--muted);margin-top:8px">
+            Open to roles: Product Ops, Supply Chain Analyst, eCommerce Ops
+          </div>
           <div style="margin-top:14px">
             <a class="download" href="resume.pdf" download>Download Resume (PDF)</a>
           </div>
@@ -363,75 +547,140 @@
               <p><strong>Goal:</strong> Fast keyword indexing and stable sales. <strong>Action:</strong> Auto + manual campaign structure, long-tail focus, and daily checks. <strong>Result:</strong> Faster keyword visibility and steadier early sales.</p>
             </article>
           </div>
-          <div style="margin-top:12px;color:var(--muted);font-size:13px">Want the full audit? Email me and I’ll share the case PDFs and raw data extracts.</div>
+          <div style="margin-top:12px;color:var(--muted);font-size:13px">
+            Want the full audit? Email me and I’ll share the case PDFs and raw data extracts.
+          </div>
         </section>
 
         <section id="projects" class="card" style="margin-bottom:14px">
           <h3 class="section-title">Projects & Tools</h3>
           <div class="skills-grid" style="margin-top:8px">
-            <div class="skill-box"><strong>Reporting</strong><div class="small" style="margin-top:6px;color:var(--muted)">Weekly dashboards, pivot summaries, automated CSV prep</div></div>
-            <div class="skill-box"><strong>Audit Kits</strong><div class="small" style="margin-top:6px;color:var(--muted)">Search-term audit template, defect checklists, launch readiness kit</div></div>
-            <div class="skill-box"><strong>SQL & Data</strong><div class="small" style="margin-top:6px;color:var(--muted)">Basic joins, group by, and sample data pulls (I’m learning)</div></div>
-            <div class="skill-box"><strong>Campaigns</strong><div class="small" style="margin-top:6px;color:var(--muted)">Campaign structure, match type clean-up, negative mapping</div></div>
+            <div class="skill-box">
+              <strong>Reporting</strong>
+              <div class="small" style="margin-top:6px;color:var(--muted)">
+                Weekly dashboards, pivot summaries, automated CSV prep
+              </div>
+            </div>
+            <div class="skill-box">
+              <strong>Audit Kits</strong>
+              <div class="small" style="margin-top:6px;color:var(--muted)">
+                Search-term audit template, defect checklists, launch readiness kit
+              </div>
+            </div>
+            <div class="skill-box">
+              <strong>SQL & Data</strong>
+              <div class="small" style="margin-top:6px;color:var(--muted)">
+                Basic joins, group by, and sample data pulls (I’m learning)
+              </div>
+            </div>
+            <div class="skill-box">
+              <strong>Campaigns</strong>
+              <div class="small" style="margin-top:6px;color:var(--muted)">
+                Campaign structure, match type clean-up, negative mapping
+              </div>
+            </div>
           </div>
         </section>
 
       </main>
 
-      <aside class="contact-float">
+      <aside id="contact" class="contact-float">
         <div class="contact-card">
           <div style="display:flex;gap:12px;align-items:center;margin-bottom:10px">
             <div class="avatar">SP</div>
             <div>
               <div style="font-weight:700">Sahil Pandita</div>
-              <div class="small" style="margin-top:6px;color:var(--muted)">eCommerce & Ops Specialist — Bangalore</div>
+              <div class="small" style="margin-top:6px;color:var(--muted)">
+                eCommerce & Ops Specialist — Bangalore
+              </div>
             </div>
           </div>
 
           <div style="margin-bottom:10px">
             <div class="small">Email</div>
-            <div style="margin-top:6px"><a href="mailto:pandxsah@gmail.com" style="color:var(--text);font-weight:600">pandxsah@gmail.com</a></div>
+            <div style="margin-top:6px">
+              <a href="mailto:pandxsah@gmail.com" style="color:var(--text);font-weight:600">
+                pandxsah@gmail.com
+              </a>
+            </div>
           </div>
 
           <div style="margin-bottom:10px">
             <div class="small">LinkedIn</div>
-            <div style="margin-top:6px"><a href="https://www.linkedin.com/in/isahilpandita" target="_blank" rel="noopener" style="color:var(--text);font-weight:600">linkedin.com/in/isahilpandita</a></div>
+            <div style="margin-top:6px">
+              <a href="https://www.linkedin.com/in/isahilpandita"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 style="color:var(--text);font-weight:600">
+                linkedin.com/in/isahilpandita
+              </a>
+            </div>
           </div>
 
           <div style="margin-top:12px">
-            <a class="download" href="mailto:pandxsah@gmail.com?subject=Interested%20in%20your%20profile">Contact via Email</a>
+            <a class="download" href="mailto:pandxsah@gmail.com?subject=Interested%20in%20your%20profile">
+              Contact via Email
+            </a>
           </div>
         </div>
       </aside>
     </div>
 
-    <footer>Built & maintained by Sahil — portfolio & case studies available on request</footer>
+    <footer>
+      Built & maintained by Sahil — portfolio & case studies available on request
+    </footer>
   </div>
-<div id="contactModal" class="modal">
-  <div class="modal-sheet">
-    <div class="sheet-handle"></div>
-    <h3 class="modal-title">Talk to me</h3>
-    <p class="modal-sub">Choose how you want to connect.</p>
 
-    <div class="modal-buttons">
-      <a class="modal-btn" href="mailto:pandxsah@gmail.com?subject=Hello%20Sahil">📧 Email me</a>
-      <a class="modal-btn" href="https://www.linkedin.com/in/isahilpandita" target="_blank">💼 Open LinkedIn</a>
-      <a class="modal-btn" href="https://wa.me/917780871070" target="_blank">📱 WhatsApp</a>
-      <a class="modal-btn" href="resume.pdf" download>📄 Download resume</a>
-      <button id="copyEmailBtn" class="modal-btn secondary" type="button" onclick="copyEmail()">📋 Copy email</button>
+  <!-- Contact Modal -->
+  <div id="contactModal"
+       class="modal"
+       role="dialog"
+       aria-modal="true"
+       aria-label="Contact options">
+    <div class="modal-sheet">
+      <div class="sheet-handle"></div>
+      <h3 class="modal-title">Talk to me</h3>
+      <p class="modal-sub">Choose how you want to connect.</p>
+
+      <div class="modal-buttons">
+        <a class="modal-btn"
+           href="mailto:pandxsah@gmail.com?subject=Hello%20Sahil">📧 Email me</a>
+
+        <a class="modal-btn"
+           href="https://www.linkedin.com/in/isahilpandita"
+           target="_blank"
+           rel="noopener noreferrer">💼 Open LinkedIn</a>
+
+        <a class="modal-btn"
+           href="https://wa.me/917780871070"
+           target="_blank"
+           rel="noopener noreferrer">📱 WhatsApp</a>
+
+        <a class="modal-btn"
+           href="resume.pdf"
+           download>📄 Download resume</a>
+
+        <button id="copyEmailBtn"
+                class="modal-btn secondary"
+                type="button"
+                onclick="copyEmail()">📋 Copy email</button>
+      </div>
+
+      <a href="#"
+         class="modal-close"
+         onclick="closeModal(event)">Close</a>
     </div>
-
-    <a href="javascript:void(0)" class="modal-close" onclick="closeModal()">Close</a>
   </div>
-</div>
 
 <script>
-function openModal(){
+function openModal(e){
+  if(e) e.preventDefault();
   const modal = document.getElementById("contactModal");
   if(modal){ modal.style.display = "flex"; }
 }
 
-function closeModal(){
+function closeModal(e){
+  if(e) e.preventDefault();
   const modal = document.getElementById("contactModal");
   if(modal){ modal.style.display = "none"; }
 }
@@ -441,6 +690,13 @@ window.addEventListener("click", function(event){
   const modal = document.getElementById("contactModal");
   if(!modal) return;
   if(event.target === modal){
+    closeModal();
+  }
+});
+
+// close on Escape key
+window.addEventListener("keydown", function(e){
+  if(e.key === "Escape"){
     closeModal();
   }
 });
@@ -456,7 +712,6 @@ function copyEmail(){
       }
     });
   }else{
-    // basic fallback: open mail client
     window.location.href = "mailto:" + email;
   }
 }
